@@ -1,6 +1,7 @@
 :root {
   --clr-primary-blue: hsl(215, 51%, 70%);
   --clr-primary-cyan: hsl(178, 100%, 50%);
+  --clr-primary-cyan-raw: 178, 100%, 50%;
 
   --clr-background-main: hsl(217, 54%, 11%);
   --clr-background-card: hsl(216, 50%, 16%);
@@ -107,19 +108,36 @@ main {
   border-radius: 10px;
 }
 
-.card__image {
-  border-radius: 10px;
-  background-color: var(--clr-primary-cyan);
+.card__image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card__image--hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(var(--clr-primary-cyan-raw), 0);
   background-image: url(images/icon-view.svg);
   background-repeat: no-repeat;
   background-position: center;
-  overflow: hidden;
+  transition: 0.2s;
   cursor: pointer;
+  opacity: 0;
 }
 
-.card__image:is(:hover, :focus-visible) {
-  opacity: 0.3;
+.card__image--hover:hover {
+  background-color: hsla(var(--clr-primary-cyan-raw), 0.3);
+  opacity: 1;
+}
+
+.card__image {
+  width: 100%;
+  position: relative;
 }
 
 .card__name {
