@@ -86,22 +86,17 @@ h6 {
   isolation: isolate;
 }
 
-body {
-  font-family: var(--ff-base);
-  font-weight: var(--fw-regular);
-  font-size: 1rem;
-  min-height: 100vh;
-  background-color: var(--clr-background-main);
-}
-
 main {
   min-height: 100vh;
   display: grid;
   place-items: center;
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  background-color: var(--clr-background-main);
 }
 
 .card {
-  max-width: 350px;
+  max-width: 21.875rem;
   background-color: var(--clr-background-card);
   color: white;
   display: grid;
@@ -112,8 +107,7 @@ main {
   border-radius: 10px;
 }
 
-.product_image {
-  width: 100%;
+.card__image {
   border-radius: 10px;
   background-color: var(--clr-primary-cyan);
   position: relative;
@@ -121,44 +115,43 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   overflow: hidden;
+  cursor: pointer;
 }
 
-.card_image {
-  width: 100%;
-}
-
-.card_image:hover {
+.card__image:is(:hover, :focus-visible) {
   opacity: 0.3;
-  cursor: pointer;
 }
 
-.product_title {
+.card__name {
   width: 100%;
-  display: flex;
-  justify-content: left;
-}
-
-.product_name {
+  text-align: left;
   font-size: 1.5rem;
+  transition: 0.3s;
 }
 
-.product_name:hover {
-  color: var(--clr-primary-cyan);
+.card__link {
+  color: var(--clr-neutral-100);
+  text-decoration: none;
+  transition: 0.3s;
   cursor: pointer;
+}
+
+.card__link:is(:hover, :focus-visible) {
+  color: var(--clr-primary-cyan);
 }
 
 .description {
   color: var(--clr-primary-blue);
-  line-height: 1.7rem;
+  line-height: 1.5;
 }
 
-.info {
+.card__info {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.price {
+.card__price {
   color: var(--clr-primary-cyan);
   font-weight: var(--fw-semibold);
   display: inline-flex;
@@ -166,7 +159,7 @@ main {
   align-items: center;
 }
 
-.price::before {
+.card__price::before {
   display: block;
   content: "";
   background-image: url(images/icon-ethereum.svg);
@@ -175,14 +168,14 @@ main {
   height: 18px;
 }
 
-.time_left {
+.card__time_left {
   color: var(--clr-primary-blue);
   display: inline-flex;
   gap: 0.5rem;
   align-items: center;
 }
 
-.time_left::before {
+.card__time_left::before {
   display: block;
   content: "";
   background-image: url(images/icon-clock.svg);
@@ -191,27 +184,24 @@ main {
   height: 17px;
 }
 
-hr {
+.card__line {
   width: 100%;
   border: none;
   border-top: 1px solid var(--clr-line);
 }
 
-.creator {
+.card__creator {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  color: var(--clr-primary-blue);
 }
 
-.creator_image {
+.creator__image {
+  margin-right: 1rem;
   max-width: 2.25rem;
   border: var(--clr-neutral-100) solid 0.05rem;
   border-radius: 50%;
-}
-
-.creator_text {
-  color: var(--clr-primary-blue);
 }
 
 .creator_link {
